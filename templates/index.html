@@ -1,0 +1,30 @@
+{% include 'header.html' %}
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>TODO</h1>
+            <div class="todo_list">
+               <ul>
+
+                        {% if items != None: %}
+                            {% for item in items %}
+                                <li style="font-size: 15px;" id="row{{item.ID}}">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="remove({{ item.ID }});"></span>
+                                  {% if item.status == 1: %}
+                                    <span id="item{{item.ID}}" class="glyphicon glyphicon-check" aria-hidden="true" onclick="toggle({{ item.ID }});"></span> {{ item.Item_title }}</li>
+                                  {% else: %}
+                                    <span id="item{{item.ID}}" class="glyphicon glyphicon-unchecked" aria-hidden="true" onclick="toggle({{ item.ID }});"></span> {{ item.Item_title }}</li>
+                                  {% endif %}
+                             {% endfor %}
+                        {% endif %}
+                </ul>
+
+                <form action="/" method="POST" id="itemForm">
+                    <input type="text" name="add_new_item" id="add_new_item" autocomplete="off" placeholder="Add new item to list..." />
+                </form>
+
+            </div>
+          </div>
+        </div>
+    </div>
+{% include 'footer.html' %}
