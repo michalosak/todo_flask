@@ -38,6 +38,13 @@ input {
     border: solid 1px silver;
 }
 
+input.edit_input {
+    display: inline;
+    width: 80%;
+    border: none;
+    padding: 5px;
+}
+
 ul {
     list-style-type: none;
     padding-left: 0px;
@@ -70,6 +77,9 @@ ul li:last-child {
 }
 
 .glyphicon:hover {
-    margin-top: 3px;
     text-shadow: none;
+}
+.span_text {
+    cursor: pointer;
+    width: 100%;
 }

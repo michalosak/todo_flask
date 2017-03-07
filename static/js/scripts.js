@@ -69,3 +69,49 @@ function remove(remove_id){
     });
 
 }
+
+function edit_item(id) {
+    var txt = $("#span"+id).text();
+    $.confirm({
+        title: '',
+        content: '' +
+        '<form action="" class="formName">' +
+        '<div class="form-group">' +
+        '<label>Edit this item</label>' +
+        '<textarea placeholder="Update item" class="name form-control" required id="update_item">'+ txt +'</textarea>' +
+        '</div>' +
+        '</form>',
+        buttons: {
+            formSubmit: {
+
+                text: 'Update',
+                btnClass: 'btn-blue',
+                action: function () {
+
+                     $.ajax({
+                        type: "POST",
+                        url: "/ajaxKit/update",
+                        data: "item_id=" + id + "&text_update=" + $('#update_item').val(),
+                        success : function(response){
+                            $( "#span"+id).replaceWith( response );
+                            $.alert('Item udated!');
+                        }
+                    });
+                }
+
+            },
+            cancel: function () {
+                //close
+            },
+        },
+        onContentReady: function () {
+            // bind to events
+            var jc = this;
+            this.$content.find('form').on('submit', function (e) {
+                // if the user submits the form by pressing enter in the field.
+                e.preventDefault();
+                jc.$$formSubmit.trigger('click'); // reference the button and click it
+            });
+        }
+    });
+  };

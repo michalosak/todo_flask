@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1>TODO</h1>
+            <h1>TODO LIST</h1>
             <div class="todo_list">
                <ul>
 
@@ -11,9 +11,9 @@
                                 <li style="font-size: 15px;" id="row{{item.ID}}">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="remove({{ item.ID }});"></span>
                                   {% if item.status == 1: %}
-                                    <span id="item{{item.ID}}" class="glyphicon glyphicon-check" aria-hidden="true" onclick="toggle({{ item.ID }});"></span> {{ item.Item_title }}</li>
+                                    <span id="item{{item.ID}}" class="glyphicon glyphicon-check" aria-hidden="true" onclick="toggle({{ item.ID }});"></span> <span id="span{{ item.ID }}" onclick="edit_item({{ item.ID }})" class="span_text">{{ item.Item_title }}</span></li>
                                   {% else: %}
-                                    <span id="item{{item.ID}}" class="glyphicon glyphicon-unchecked" aria-hidden="true" onclick="toggle({{ item.ID }});"></span> {{ item.Item_title }}</li>
+                   <span id="item{{item.ID}}" class="glyphicon glyphicon-unchecked" aria-hidden="true" onclick="toggle({{ item.ID }});"></span> <span id="span{{ item.ID }}" onclick="edit_item({{ item.ID }})" class="span_text">{{ item.Item_title }}</span></li>
                                   {% endif %}
                              {% endfor %}
                         {% endif %}

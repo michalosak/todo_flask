@@ -1,15 +1,16 @@
 import sql
 
 
-class todo_list(object):
+class Todo(object):
 
+    def __init__(self):
 
-    @staticmethod
-    def get_full_list():
+        pass
+
+    def get_full_list(self):
         return sql.query("SELECT * FROM todo_items")
 
-    @staticmethod
-    def add_item_to_list(item):
+    def add_item_to_list(self, item):
         """
         :param item:
         :return: None
@@ -20,8 +21,7 @@ class todo_list(object):
 
         return sql.query(query)
 
-    @staticmethod
-    def toggle(item_id):
+    def toggle(self, item_id):
         """
         :param item_id:
         :return: None
@@ -31,8 +31,7 @@ class todo_list(object):
         `status` =  (CASE `status` WHEN 0 THEN 1 WHEN Null THEN 1 ELSE 0 END) WHERE ID={}""".format(item_id)
         sql.query(query)
 
-    @staticmethod
-    def remove(item_id):
+    def remove(self, item_id):
         """
         :param item_id:
         :return: None
@@ -40,3 +39,16 @@ class todo_list(object):
 
         query = "DELETE FROM `todo_items` WHERE ID={}".format(item_id)
         sql.query(query)
+
+    def update(self, item_id, text_update):
+        """
+        :param item_id:
+        :param text_update
+        :return: None
+        """
+
+        query = "UPDATE `todo_items` SET item_title=? WHERE ID=?"
+        sql.query(query, [text_update, item_id])
+        return sql.query("SELECT * FROM todo_items WHERE ID={}".format(item_id))
+
+
