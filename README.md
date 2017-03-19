@@ -16,6 +16,8 @@ Installation and Requirements
 + Python => 3
 + Flask
 + pip3
++ SQLAlchemy (sudo pip install flask_sqlalchemy
+              sudo pip install sqlalchemy)
 
 2. If Flask is installed correctly. You need only run: "python3 main.py" 
    
