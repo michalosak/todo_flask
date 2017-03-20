@@ -8,8 +8,9 @@ class Todos(db.Model):
     item_title = db.Column(db.String, nullable=False)
     status = db.Column(db.String, nullable=False)
 
-    def __init__(self, title):
+    def __init__(self, title, status = 0):
         self.item_title = title
+        self.status = status
 
     def __repr__(self):
         return 'title{}'.format(self.item_title)

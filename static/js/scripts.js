@@ -14,8 +14,9 @@ function submitForm(){
         data: "add_new_item=" + add_new_item,
         success : function(response){
             document.getElementById("add_new_item").value = "";
-            $("ul").append(response);
+            $("ul").append(response).show();
             $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+
         }
     });
 
@@ -28,7 +29,7 @@ function toggle(toggle_id){
         url: "/ajaxKit/toggle",
         data: "toggle_id=" + toggle_id,
         success : function(response){
-
+            console.log(response)
             var className = $('#item' + toggle_id).attr('class');
 
             if (className == "glyphicon glyphicon-unchecked") {

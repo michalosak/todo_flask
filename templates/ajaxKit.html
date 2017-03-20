@@ -1,7 +1,7 @@
 {% if action == 'add_new': %}
 <li style="font-size: 15px;" id="row{{ item.ID }}">
     <span class="glyphicon glyphicon-remove" aria-hidden="true" onclick="remove({{ item.ID }});"></span>
-    <span id="item{{ item.ID }}" class="glyphicon glyphicon-unchecked" aria-hidden="true" onclick="toggle({{ item.ID }})"></span><span id="span{{ item.ID }}" onclick="edit_item({{ item }})" class="span_text">{{ item.item_title}}</span>
+    <span id="item{{ item.ID }}" class="glyphicon glyphicon-unchecked" aria-hidden="true" onclick="toggle({{ item.ID }})"></span><span id="span{{ item.ID }}" onclick="edit_item({{ item.ID }})" class="span_text">{{ item.item_title}}</span>
 </li>
 {% endif %}
 {% if action == 'update': %}

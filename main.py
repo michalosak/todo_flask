@@ -31,7 +31,7 @@ def ajaxKit(action):
 
     if action == 'toggle': #change status of item in db
         if request.method == 'POST':
-
+            print(request.form['toggle_id'])
             toggle_id = request.form['toggle_id']
             db.session.execute("UPDATE `todo_items` SET `status` =  (CASE `status` WHEN 0 THEN 1 WHEN Null THEN 1 ELSE 0 END) WHERE ID=:val", {'val': toggle_id})
             db.session.commit()
